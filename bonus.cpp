@@ -26,34 +26,37 @@ int main()
 
 		if (dataIn){
 
- while(!inFile.eof()){
+ while(!dataIn.eof()){
 
 		dataIn >> character;
 
-if(character = searchCase){
-   dataIn >> character >> dataColumn1 >> dataColumn2 >> dataColumn3;
-
+if(character == searchCase){
+	
+   dataIn >> dataColumn1 >> dataColumn2 >> dataColumn3;
+   
+	
    average = (dataColumn1 + dataColumn2 + dataColumn3) / numofColumns;
 
    total = total + dataColumn1 + dataColumn2 + dataColumn3;
 
    casesFound++;
-
-   cout << "The average for line #" << lineCount <<" is: " << average << "\t(" << dataColumn1 << " + " << dataColumn2 << " + " << dataColumn3 << ")" << endl;
+   
+//FIX: line Count 
+   cout << "The average for line #" << lineCount <<" is: " << average << "\t(" << dataColumn1 << " + " << dataColumn2 << " + " << dataColumn3 << ")" << endl << endl;
 	
-
 	}
 
 	lineCount++;
-
 	
-	}
-
+}
 	lineAvg = total / (casesFound * numofColumns);
 
-	cout << "The average for all lines which start with 'G' is:\t" << lineAvg <<;
-}
+	cout << "The average for all lines which start with 'G' is:\t" << lineAvg << endl;
+
+	}
+	
 	dataIn.close();
 
    return 0;
+
 }

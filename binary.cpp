@@ -12,7 +12,10 @@ int main()
    ofstream dataOut; //N.B.: 'dataOut' is a class
    dataOut.open("abc.bin", ios::out | ios::binary);
 if (dataOut) {
-   dataOut << a << " " << b << " " << c;
+   dataOut.write (reinterpret_cast<char *> (&a),sizeof(a));
+   dataOut.write (reinterpret_cast<char *> (&b),sizeof(b));
+   dataOut.write (reinterpret_cast<char *> (&c),sizeof(c));
+   //dataOut << endl << a << " " << b << " " << c;
    dataOut.close();
 }
 else
